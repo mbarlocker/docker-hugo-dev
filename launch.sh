@@ -1,15 +1,14 @@
 #!/bin/bash
-set -e
-source /home/app/.bashnvm
-source /env.sh
+set -Eeuo pipefail
 
-if [[ -z "${PORT}" ]]; then
-	echo 'Missing port. Specify PORT in env.sh before running.'
-	exit 1
-fi
+source "/home/app/.bashnvm"
+source "/env.sh"
+
+: "${PORT:?Missing port. Specify PORT in env.sh before running.}"
 
 cd /app
-if ! ( nvm use 2>/dev/null ); then
+
+if ! nvm use >/dev/null 2>&1; then
 	nvm install
 	nvm use
 fi

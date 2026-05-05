@@ -7,4 +7,7 @@ VOLUME ["/app"]
 EXPOSE 9000
 
 COPY launch.sh /startup/app/999-hugo
+RUN bash -n /startup/app/999-hugo
+
 COPY env.sh /env.sh
+RUN bash -n /env.sh

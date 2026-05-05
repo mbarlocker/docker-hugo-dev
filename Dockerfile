@@ -1,4 +1,4 @@
-FROM mbarlocker/docker-typescript-dev:v0.0.4
+FROM mbarlocker/docker-typescript-dev:v0.0.5
 
 RUN apt update && apt install -y hugo \
     && rm -rf /var/lib/apt/lists/
